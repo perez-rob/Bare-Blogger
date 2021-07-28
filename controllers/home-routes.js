@@ -61,17 +61,17 @@ router.get('/post/:id', async (req, res) => {
 /////////////////////////////////////////////////////////////////////////////////////////
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
   res.render('login');
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      include: [{ model: Project }],
+      include: [{ model: Post }],
       attributes: {
         exclude: ['password'],
       },
@@ -81,7 +81,7 @@ router.get('/profile', async (req, res) => {
     // REMOVE
     console.log(user);
 
-    res.render('profile', {
+    res.render('dashboard', {
       user,
       loggedIn: req.session.loggedIn,
       userId: req.session.user_id,

@@ -1,14 +1,12 @@
-<h1>Selected Project</h1>
+<h1>Selected Post</h1>
 <div>
-  <div>Name: {{project.name}}</div>
-  <div>Description: {{project.description}}</div>
-  <div>date_created: {{project.date_created}}</div>
-  <div>needed_funding: {{project.needed_funding}}</div>
-  <div>creator name: {{project.user.name}}</div>
-  <div>creator email: {{project.user.email}}</div>
+  <div>Title: {{post.title}}</div>
+  <div>Content: {{post.content}}</div>
+  <div>date_created: {{post.date_created}}</div>
+  <div>creator username: {{post.user.username}}</div>
 </div>
 <br />
-<h2>Other Projects by Same Creator</h2>
+<h2>Other Posts by Same User</h2>
 {{#each otherPosts as |other|}}
 {{> otherPosts-details}}
 {{/each}}

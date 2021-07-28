@@ -1,0 +1,77 @@
+<div class='row'>
+  <form id='signup-form' class='col s12'>
+    <div class='row'>
+      <div class='input-field col s6'>
+        <i class='material-icons prefix'>account_circle</i>
+        <input
+          id='name'
+          type='text'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please enter your name')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='name'>First Name</label>
+      </div>
+      <div class='input-field col s6'>
+        <i class='material-icons prefix'>email</i>
+        <input
+          id='email'
+          type='email'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please enter your email')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='email'>Email</label>
+      </div>
+    </div>
+        <div class='row'>
+      <div class='input-field col s6'>
+        <i class='material-icons prefix'>password</i>
+        <input
+          id='password'
+          type='password'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please enter password')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='password'>Password</label>
+      </div>
+      <div class='input-field col s6'>
+        <i class='material-icons prefix'>password</i>
+        <input
+          id='passwordConf'
+          type='password'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please confirm your password')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='passwordConf'>Confirm Password</label>
+      </div>
+    </div>
+    <div class='row'>
+            <div class='input-field col s6'>
+        <i class='material-icons prefix'>account_circle</i>
+        <input
+          id='username'
+          type='text'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please enter a username')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='username'>Username</label>
+      </div>
+      <div class="col s6">
+      <button class='waves-effect waves-light btn' type='submit'><i
+          class='material-icons right'
+        >login</i>Login</button>
+        </div>
+    </div>
+  </form>
+</div>
+
+<script src="/js/signUp.js"></script>
