@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Do not Tech",
+    "content": "Tech is scary, it will ruin us all.",
+    "user_id": 1
+  },
+  {
+    "title": "Computers are cool",
+    "content": "...I wanna be a computer when I grow up...",
+    "user_id": 2
+  },
+  {
+    "title": "Animals as Computers",
+    "content": "Really, if ya think about it, aren't all animals just computers in furry suits?",
+    "user_id": 3
+  },
+  {
+    "title": "Who made this?",
+    "content": "Seriously, what kinda ragamuffin made this site?",
+    "user_id": 1
+  }
+]
