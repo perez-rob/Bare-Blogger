@@ -11,7 +11,7 @@ const handleSignup = (event) => {
     return;
   }
 
-  fetch("/api/users/signup", {
+  fetch("/api/users/", {
     method: "POST",
     body: JSON.stringify({ name, email, username, password }),
     headers: { "Content-Type": "application/json" },
@@ -19,12 +19,17 @@ const handleSignup = (event) => {
     .then(async (response) => {
       // FIND A BETTER ERROR HANDLING MESSAGE/MEANS
       const resMsg = await response.json();
+      console.log(resMsg);
       if (response.ok) {
         document.location.replace("/dashboard");
-      } else if (resMsg.message === "user") {
-        alert("No User with those credentials");
-      } else if (resMsg.message === "password") {
-        alert("incorrect password");
+      } else if (
+        resMsg.errors[0].message === "Validation len on password failed"
+      ) {
+        alert("Password must be at least 8 characters");
+      } else if (resMsg.errors[0].message === "user.username must be unique") {
+        alert("Someone already has that username, please pick another one");
+      } else if (resMsg.errors[0].message === "user.email must be unique") {
+        alert("This email address already has an account");
       } else {
         alert("Error Unknown");
       }

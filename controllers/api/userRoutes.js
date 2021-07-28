@@ -1,7 +1,7 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -12,25 +12,26 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { email: req.body.userInfo },
     });
 
     if (!userData) {
-      res.status(400).json({ message: 'user' });
+      res.status(400).json({ message: "user" });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'password' });
+      res.status(400).json({ message: "password" });
       return;
     }
 
@@ -38,27 +39,14 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.post('/signup', async (req, res) => {
-  try {
-    const newUser = await User.create({
-      ...req.body
-    })
-
-    res.status(200).json(newUser)
-  } catch (err) {
-    res.status(500).json(err);
-
-  }
-});
-
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -68,7 +56,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const userData = await User.destroy({
       where: {
@@ -77,7 +65,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!userData) {
-      res.status(404).json({ message: 'No user found with this id!' });
+      res.status(404).json({ message: "No user found with this id!" });
       return;
     }
 

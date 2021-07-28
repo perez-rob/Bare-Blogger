@@ -1,29 +1,24 @@
 const handleSubmit = async (event) => {
   event.preventDefault();
   const pname = event.target.pName.value;
-  const pFund = event.target.pFund.value;
   const pDesc = event.target.description.value;
 
-  const response = await fetch('/api/projects', {
-    method: 'POST',
+  const response = await fetch("/api/posts", {
+    method: "POST",
     body: JSON.stringify({
-      name: pname,
+      title: pname,
       description: pDesc,
-      needed_funding: pFund,
     }),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
-    event.target.pName.value = '';
-    event.target.pFund.value = '';
-    event.target.description.value = '';
-    document.location.replace('/profile');
+    event.target.pName.value = "";
+    event.target.description.value = "";
+    document.location.replace("/dashboard");
   } else {
-    alert('Error posting project');
+    alert("Error posting");
   }
 };
 
-document
-  .getElementById('project-form')
-  .addEventListener('submit', handleSubmit);
+document.getElementById("post-form").addEventListener("submit", handleSubmit);

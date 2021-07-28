@@ -7,7 +7,7 @@ It's done when a logged in user is redirected to /profile when they try to visit
 <h2>Create a New Post:</h2>
 
 <div class='row'>
-  <form id='project-form' class='col s7'>
+  <form id='post-form' class='col s7'>
     <div class='row'>
       <div class='input-field col s12'>
         <i class='material-icons prefix'>account_circle</i>
@@ -21,12 +21,13 @@ It's done when a logged in user is redirected to /profile when they try to visit
         />
         <label for='pName'>Post Title</label>
       </div>
-    <div class='row'>
+    </div>
+    <div>
       <div class='input-field col s12'>
         <textarea id='description' class='materialize-textarea'></textarea>
         <label for='description'>Post content...</label>
       </div>
-    </div>
+      </div>
     <div class='row'>
       <button class='waves-effect waves-light btn' type='submit'><i
           class='material-icons right'
@@ -39,7 +40,5 @@ It's done when a logged in user is redirected to /profile when they try to visit
     {{/each}}
   </div>
 </div>
-<div>{{loggedIn}}</div>
-<div>{{userId}}</div>
 
 <script src="/js/newPost.js"></script>
