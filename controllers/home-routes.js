@@ -68,6 +68,16 @@ router.get('/login', async (req, res) => {
   res.render('login');
 });
 
+router.get('/signup', async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard');
+    return;
+  }
+
+  res.render('signup');
+});
+
+
 router.get('/dashboard', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
