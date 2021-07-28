@@ -7,7 +7,7 @@ const handleSubmit = async (event) => {
     method: "POST",
     body: JSON.stringify({
       title: pname,
-      description: pDesc,
+      content: pDesc,
     }),
     headers: { "Content-Type": "application/json" },
   });

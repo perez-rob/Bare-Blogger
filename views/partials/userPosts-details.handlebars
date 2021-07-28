@@ -4,11 +4,13 @@
       <h3>{{title}}</h3>
       <p>{{date_created}}</p>
     </div>
-    <div class="col s4">
-      <button
-        id="deleteBtn"
-        class="waves-effect waves-light btn"
-      >Delete</button>
-    </div>
   </a>
+  <div class="col s4">
+    <button
+      id="deleteBtn-{{id}}"
+      data-postId={{id}}
+      class="waves-effect waves-light btn deleteBtn"
+    >Delete</button>
+  </div>
+
 </div>

@@ -6,7 +6,11 @@
   <div>creator username: {{post.user.username}}</div>
 </div>
 <br />
-<h2>Other Posts by Same User</h2>
+{{#if otherPosts}}
+<h2>Other Posts by {{post.user.username}}</h2>
 {{#each otherPosts as |other|}}
 {{> otherPosts-details}}
 {{/each}}
+{{else}}
+<h2>No other posts by {{post.user.username}}</h2>
+{{/if}}

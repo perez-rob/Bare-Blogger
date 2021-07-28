@@ -1,28 +1,28 @@
-const router = require('express').Router();
-const { Post, User } = require('../models');
-const Op = require('sequelize').Op;
+const router = require("express").Router();
+const { Post, User } = require("../models");
+const Op = require("sequelize").Op;
 // import auth middleware
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      include: [{ model: User, attributes: ['username'] }],
+      include: [{ model: User, attributes: ["username"] }],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
     // REMOVE
-    console.log('SESSSION', req.session.loggedIn);
-    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+    console.log("SESSSION", req.session.loggedIn);
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ['username'] }],
+      include: [{ model: User, attributes: ["username"] }],
     });
 
     if (!postData) {
@@ -42,12 +42,10 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    const otherPosts = otherPostData.map((other) =>
-      other.get({ plain: true })
-    );
+    const otherPosts = otherPostData.map((other) => other.get({ plain: true }));
     // REMOVE
     console.log(post);
-    res.render('postHighlight', {
+    res.render("postHighlight", {
       post,
       otherPosts,
       loggedIn: req.session.loggedIn,
@@ -59,31 +57,34 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 /////////////////////////////////////////////////////////////////////////////////////////
-router.get('/login', async (req, res) => {
+router.get("/login", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
-router.get('/signup', async (req, res) => {
+router.get("/signup", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
     return;
   }
 
-  res.render('signup');
+  res.render("signup");
 });
 
+router.get("/dashboard", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/");
+  }
 
-router.get('/dashboard', async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       include: [{ model: Post }],
       attributes: {
-        exclude: ['password'],
+        exclude: ["password"],
       },
     });
 
@@ -91,7 +92,7 @@ router.get('/dashboard', async (req, res) => {
     // REMOVE
     console.log(user);
 
-    res.render('dashboard', {
+    res.render("dashboard", {
       user,
       loggedIn: req.session.loggedIn,
       userId: req.session.user_id,
