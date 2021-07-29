@@ -7,6 +7,18 @@
   {{#if loggedIn}}
   <button id="commentBtn" class="waves-effect waves-light btn">Comment</button>
   {{/if}}
+  {{#if userBtns}}
+    <button
+    id="editBtn-{{id}}"
+    data-postId="{{id}}"
+    class="waves-effect waves-light btn editBtn"
+  >Edit</button>
+  <button
+    id="deleteBtn-{{id}}"
+    data-postId="{{id}}"
+    class="waves-effect waves-light btn deleteBtn"
+  >Delete</button>
+  {{/if}}
   <div id="for-comment-form" data-postId={{post.id}} class="row"></div>
 </div>
 <br />

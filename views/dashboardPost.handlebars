@@ -1,0 +1,46 @@
+{{! It's done when only a logged in user can visit the /profile route.
+
+It's done when a logged in user is redirected to /profile when they try to visit /login again. }}
+
+<h1>Welcome {{user.name}}!</h1>
+
+<h2>Create a New Post:</h2>
+
+<div class='row'>
+  <form id='post-form' class='col s7'>
+    <div class='row'>
+      <div class='input-field col s12'>
+        <i class='material-icons prefix'>account_circle</i>
+        <input
+          id='pName'
+          type='text'
+          class='validate'
+          required
+          oninvalid="this.setCustomValidity('Please enter a title for your post')"
+          oninput="this.setCustomValidity('')"
+        />
+        <label for='pName'>Post Title</label>
+      </div>
+    </div>
+    <div>
+      <div class='input-field col s12'>
+        <textarea id='description' class='materialize-textarea'></textarea>
+        <label for='description'>Post content...</label>
+      </div>
+      </div>
+    <div class='row'>
+      <button class='waves-effect waves-light btn' type='submit'><i
+          class='material-icons right'
+        >login</i>Submit</button>
+    </div>
+  </form>
+  <div class="col s5">
+    <h3>{{user.username}}'s Posts:</h3>
+    {{#each user.posts as |post|}}
+    {{> userPostsBtns}}
+    {{/each}}
+  </div>
+</div>
+
+<script src="/js/newPost.js"></script>
+<script src="/js/deletePost.js"></script>

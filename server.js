@@ -18,7 +18,7 @@ const sess = {
   secret: "Super secret secret",
   cookie: {
     /// CHANGE MAXAGE AND POSSIBLY ADD OTHER PROPERTIES
-    maxAge: 600000,
+    maxAge: 6000000,
   },
   resave: false,
   saveUninitialized: true,

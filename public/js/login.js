@@ -12,7 +12,7 @@ const handleLogin = (event) => {
       // FIND A BETTER ERROR HANDLING MESSAGE/MEANS
       const resMsg = await response.json();
       if (response.ok) {
-        document.location.replace("/dashboard");
+        document.location.replace("/");
       } else if (resMsg.message === "user") {
         alert("No User with those credentials");
       } else if (resMsg.message === "password") {

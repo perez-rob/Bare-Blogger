@@ -1,6 +1,12 @@
 <div>
+  {{#if loggedIn}}
+  <h3>Logged in as {{userName.username}}</h3>
+  <button onclick="document.location.assign('/dashboard/post')" class="waves-effect waves-light btn">New Post</button>
+  {{else}}
   <button onclick="document.location.assign('/signup')" class="waves-effect waves-light btn">Join Bare Blogger</button>
+  {{/if}}
 </div>
+
 
 {{#each posts as |post|}}
 {{> homepage-details}}
