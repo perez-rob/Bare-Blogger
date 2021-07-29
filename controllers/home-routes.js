@@ -18,7 +18,6 @@ router.get("/", async (req, res) => {
     }
 
     const posts = postData.map((post) => post.get({ plain: true }));
-
     res.render("homepage", { posts, loggedIn: req.session.loggedIn, userName });
   } catch (err) {
     console.log(err);
@@ -29,7 +28,13 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username", "id"] }],
+      include: [
+        { model: User, attributes: ["username", "id"] },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+        },
+      ],
     });
 
     if (!postData) {
@@ -45,9 +50,11 @@ router.get("/post/:id", async (req, res) => {
           [Op.ne]: postData.id,
         },
       },
+      include: [{ model: Comment }],
     });
 
     const post = postData.get({ plain: true });
+    console.log("HERE", post);
     const userBtns = post.user_id === req.session.user_id;
     console.log("HERE==", userBtns);
 

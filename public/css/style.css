@@ -1,11 +1,11 @@
 :root {
-  --color1: #05519C;
+  --color1: #05519c;
   /* --color1: #075BAF; */
-  --color2: #2F8AE5;
+  --color2: #2f8ae5;
   --color3: #117e35;
-  --color4: #E5EEF8;
-  --color5: #FFE4E4;
-  --color-wb: #D7E6F0;
+  --color4: #e5eef8;
+  --color5: #ffe4e4;
+  --color-wb: #d7e6f0;
 }
 
 body {
@@ -16,11 +16,10 @@ nav {
   background-color: var(--color1);
   padding: 0.8rem 1.6rem;
   height: 6rem;
-
 }
 
 nav .brand-logo {
-  color: var(--color5) ;
+  color: var(--color5);
   font-size: 3rem;
 }
 
@@ -36,7 +35,6 @@ nav ul li a {
   padding: 1.3rem;
   margin-top: 2rem;
   margin-bottom: 1.2rem;
-
 }
 
 .homepage-buttons button {
@@ -73,4 +71,54 @@ nav ul li a {
   vertical-align: middle;
   color: rgb(214, 205, 72);
   font-weight: 700;
+}
+
+.selected-post {
+  background-color: rgb(169, 226, 245);
+}
+
+.selected-post h2 {
+  text-align: center;
+  color: var(--color1);
+  font-weight: 700;
+}
+
+.selected-post h5 {
+  text-align: center;
+  color: var(--color1);
+  font-weight: 700;
+}
+
+.selected-post h6 {
+  color: var(--color1);
+  font-weight: 700;
+}
+
+.selected-post p {
+  color: var(--color1);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 1rem 3rem;
+}
+
+.selected-post .dateTime {
+  text-align: center;
+  color: var(--color1);
+  font-weight: 700;
+}
+
+.comment {
+  border: 5px solid var(--color1);
+  border-radius: 1rem;
+  margin: 1rem 3rem;
+}
+
+.comment p {
+  margin: 0 2rem;
+}
+.comment-info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 3px solid var(--color1);
+  margin-top: 1.5rem;
 }

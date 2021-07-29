@@ -1,9 +1,29 @@
-<h1>Selected Post</h1>
-<div>
-  <div>Title: {{post.title}}</div>
-  <div>Content: {{post.content}}</div>
-  <div>date_created: {{post.date_created}}</div>
-  <div>creator username: {{post.user.username}}</div>
+{{!-- <div class="selected-post"></div>
+<h1>{{post.title}}</h1>
+<p> by: {{post.user.username}}</p>
+<p>{{format_dateTime post.date_created}}</p>
+  <p>{{post.content}}</p> --}}
+
+  <div class="row">
+  <div class="col s12">
+    <div class="card z-depth-3 selected-post">
+        <div class="selected-post">
+          <h2>{{post.title}}</h2>
+          <h5> by: {{post.user.username}}</h5>
+          <p class="dateTime">{{format_dateTime post.date_created}}</p>
+          <p>{{post.content}}</p>
+        </div>
+        <h6>&nbsp; &nbsp; Comments:</h6>
+        <div class="selected-comments">
+          {{#each post.comments as |comment|}}
+          {{> comment-details}}
+          {{/each}}
+        </div>
+    </div>
+  </div>
+</div>
+  
+  
   {{#if loggedIn}}
   <button id="commentBtn" class="waves-effect waves-light btn">Comment</button>
   {{/if}}
@@ -23,12 +43,12 @@
 </div>
 <br />
 {{#if otherPosts}}
-<h2>Other Posts by {{post.user.username}}</h2>
+<h3>Other Posts by {{post.user.username}}</h3>
 {{#each otherPosts as |other|}}
 {{> otherPosts-details}}
 {{/each}}
 {{else}}
-<h2>No other posts by {{post.user.username}}</h2>
+<h3>No other posts by {{post.user.username}}</h3>
 {{/if}}
 
 {{#if loggedIn}}
