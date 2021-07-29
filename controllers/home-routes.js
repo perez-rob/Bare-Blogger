@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 const Op = require("sequelize").Op;
 // import auth middleware
 
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      include: [{ model: User, attributes: ["username"] }],
+      include: [{ model: User, attributes: ["username"] }, { model: Comment }],
     });
     let userName;
     if (req.session.loggedIn) {
@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
     }
 
     const posts = postData.map((post) => post.get({ plain: true }));
+
     res.render("homepage", { posts, loggedIn: req.session.loggedIn, userName });
   } catch (err) {
     console.log(err);
