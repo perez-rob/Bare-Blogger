@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Wow, you really speak from the heart...",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "content": "Nah, #FakeNews",
+    "user_id": 3,
+    "post_id": 1
+  },
+  {
+    "content": "...don't start with me Green-Nah",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "content": "I agree, computers are like totally the way of the future",
+    "user_id": 1,
+    "post_id": 2
+  },
+  {
+    "content": "...are you serious right now?",
+    "user_id": 2,
+    "post_id": 3
+  },
+  {
+    "content": "Yeah, 100% serious my dude!",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "content": "totally not me :grimacing: ",
+    "user_id": 2,
+    "post_id": 4
+  }
+]

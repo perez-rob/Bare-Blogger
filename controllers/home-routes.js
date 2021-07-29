@@ -52,7 +52,7 @@ router.get("/post/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-/////////////////////////////////////////////////////////////////////////////////////////
+
 router.get("/login", async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
