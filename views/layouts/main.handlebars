@@ -15,7 +15,10 @@
     <nav>
       <div class="nav-wrapper">
         {{! move to left on sm screen }}
-        <a href="/" class="left">Home</a>
+        <ul class="left">
+          <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
         <a href="/" class="brand-logo center">Bare Blogger</a>
         {{! consider removing as list }}
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -29,7 +32,7 @@
               </div>
             </form></li>
           {{#if loggedIn}}
-            <li><a href="/dashboard">Dashboard</a></li>
+
             <li><a id="logout" href="#">Logout</a></li>
           {{else}}
             <li><a href="/login">Login</a></li>

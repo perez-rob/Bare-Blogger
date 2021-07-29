@@ -10,8 +10,6 @@ router.get("/", async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    // REMOVE
-    console.log("SESSSION", req.session.loggedIn);
     res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
@@ -43,8 +41,6 @@ router.get("/post/:id", async (req, res) => {
     const post = postData.get({ plain: true });
 
     const otherPosts = otherPostData.map((other) => other.get({ plain: true }));
-    // REMOVE
-    console.log(post);
     res.render("postHighlight", {
       post,
       otherPosts,
@@ -77,7 +73,7 @@ router.get("/signup", async (req, res) => {
 
 router.get("/dashboard", async (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/login");
   }
 
   try {
@@ -89,8 +85,6 @@ router.get("/dashboard", async (req, res) => {
     });
 
     const user = await userData.get({ plain: true });
-    // REMOVE
-    console.log(user);
 
     res.render("dashboard", {
       user,

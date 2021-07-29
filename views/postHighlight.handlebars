@@ -4,6 +4,10 @@
   <div>Content: {{post.content}}</div>
   <div>date_created: {{post.date_created}}</div>
   <div>creator username: {{post.user.username}}</div>
+  {{#if loggedIn}}
+  <button id="commentBtn" class="waves-effect waves-light btn">Comment</button>
+  {{/if}}
+  <div id="for-comment-form" data-postId={{post.id}} class="row"></div>
 </div>
 <br />
 {{#if otherPosts}}
@@ -13,4 +17,8 @@
 {{/each}}
 {{else}}
 <h2>No other posts by {{post.user.username}}</h2>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/js/addComment.js"></script>
 {{/if}}
