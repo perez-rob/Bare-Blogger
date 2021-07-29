@@ -1,0 +1,76 @@
+:root {
+  --color1: #05519C;
+  /* --color1: #075BAF; */
+  --color2: #2F8AE5;
+  --color3: #117e35;
+  --color4: #E5EEF8;
+  --color5: #FFE4E4;
+  --color-wb: #D7E6F0;
+}
+
+body {
+  background-color: var(--color4);
+}
+
+nav {
+  background-color: var(--color1);
+  padding: 0.8rem 1.6rem;
+  height: 6rem;
+
+}
+
+nav .brand-logo {
+  color: var(--color5) ;
+  font-size: 3rem;
+}
+
+nav ul li a {
+  color: var(--color5);
+  font-size: 1.3rem;
+}
+
+.homepage-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+
+}
+
+.homepage-buttons button {
+  background-color: var(--color3);
+  color: var(--color5);
+  font-size: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  height: max-content;
+}
+
+.card {
+  background-color: var(--color2);
+  margin: 1rem 4rem;
+}
+
+.card .card-title {
+  color: var(--color5);
+  font-weight: 700;
+}
+
+.card-content p {
+  color: var(--color5);
+  font-weight: 700;
+}
+
+.card-action {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-action p {
+  vertical-align: middle;
+  color: rgb(214, 205, 72);
+  font-weight: 700;
+}

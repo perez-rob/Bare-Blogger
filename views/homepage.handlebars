@@ -1,9 +1,9 @@
-<div>
+<div class="homepage-buttons">
   {{#if loggedIn}}
   <h3>Logged in as {{userName.username}}</h3>
   <button onclick="document.location.assign('/dashboard/post')" class="waves-effect waves-light btn">New Post</button>
   {{else}}
-  <button onclick="document.location.assign('/signup')" class="waves-effect waves-light btn">"Join The People's Blog"</button>
+  <button onclick="document.location.assign('/signup')" class="waves-effect waves-light btn">Join The Movement</button>
   {{/if}}
 </div>
 
