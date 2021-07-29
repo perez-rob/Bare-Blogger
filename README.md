@@ -1,1 +1,1 @@
-# Bare-Blogger
+# The People's Blog
