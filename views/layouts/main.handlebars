@@ -12,25 +12,53 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><form>
+          <div class="input-field">
+            <input id="search" type="search" required />
+            <label class="label-icon" for="search"><i
+                class="material-icons"
+              >search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form></li>
+    </ul>
+    <!-- Dropdown Structure -->
+  <ul id='dropdown2' class='dropdown-content'>
+    <li><a href="/">Home</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    {{#if loggedIn}}
+
+    <li><a id="logout" href="#">Logout</a></li>
+  {{else}}
+    <li><a href="/login">Login</a></li>
+  {{/if}}
+    <li class="divider" tabindex="-1"></li>
+    <li><form>
+          <div class="input-field">
+            <input id="search" type="search" required />
+            <label class="label-icon" for="search"><i
+                class="material-icons"
+              >search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form></li>
+  </ul>
+
     <nav>
       <div class="nav-wrapper">
         {{! move to left on sm screen }}
-        <ul class="left">
+        <ul class="left hide-on-med-and-down">
           <li><a href="/">Home</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
         </ul>
-        <a href="/" class="brand-logo center">The People's Blog</a>
+        <a href="/" id="page-title" class="brand-logo">The People's Blog</a>
         {{! consider removing as list }}
+        <a href="#" class="right hide-on-large-only dropdown-trigger" data-target='dropdown2'><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><form>
-              <div class="input-field">
-                <input id="search" type="search" required />
-                <label class="label-icon" for="search"><i
-                    class="material-icons"
-                  >search</i></label>
-                <i class="material-icons">close</i>
-              </div>
-            </form></li>
+          <li><i class="dropdown-trigger material-icons" data-target='dropdown1'
+              >search</i></label></li>
           {{#if loggedIn}}
 
             <li><a id="logout" href="#">Logout</a></li>
@@ -45,6 +73,7 @@
       {{{body}}}
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="/js/materialize.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     {{#if loggedIn}}

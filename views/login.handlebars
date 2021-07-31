@@ -2,43 +2,46 @@
 
 {{! It's done when a logged in user is redirected to /profile when they try to visit /login again. }}
 
-<div class='row'>
-  <form id='login-form' class='col s12'>
-    <div class='row'>
-      <div class='input-field col s6'>
-        <i class='material-icons prefix'>account_circle</i>
+<div id="flex-cont" class="row">
+  <form id="login-form" class="col l6 m8 s10">
+    <div class="row">
+      <div class="input-field col s6 push-s3">
+        <i class="material-icons prefix">account_circle</i>
         <input
-          id='user'
-          type='text'
-          class='validate'
+          id="user"
+          type="text"
+          class="validate"
           required
           oninvalid="this.setCustomValidity('Please enter email or username')"
           oninput="this.setCustomValidity('')"
         />
-        <label for='user'>Email or Username</label>
+        <label for="user">Username or Email</label>
       </div>
-      <div class='input-field col s6'>
-        <i class='material-icons prefix'>password</i>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 push-s3">
+        <i class="material-icons prefix">password</i>
         <input
-          id='pass'
-          type='password'
-          class='validate'
+          id="pass"
+          type="password"
+          class="validate"
           required
           oninvalid="this.setCustomValidity('Please enter your password')"
           oninput="this.setCustomValidity('')"
         />
-        <label for='pass'>Password</label>
+        <label for="pass">Password</label>
       </div>
     </div>
-    <div class='row'>
-      <button class='waves-effect waves-light btn' type='submit'><i
-          class='material-icons right'
-        >login</i>Login</button>
+    <div id="submit-row" class="row">
+      <button
+        class="waves-effect waves-light btn col l4 push-l4 m6 push-m3 s8 push-s2"
+        type="submit"
+      ><i class="material-icons right">login</i>Login</button>
     </div>
+    <div><a id="then-sign-up" href="/signup">Don't have account? Sign Up!</a></div>
   </form>
-  <div><a href="/signup">Don't have account? Sign Up!</a></div>
 </div>
 
 {{! add Sign Up form }}
 
-<script src='/js/login.js'></script>
+<script src="/js/login.js"></script>

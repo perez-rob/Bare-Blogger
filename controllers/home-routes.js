@@ -97,14 +97,14 @@ router.get("/dashboard", async (req, res) => {
 
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      include: [{ model: Post }],
+      include: [{ model: Post, include: [{ model: Comment }] }],
       attributes: {
         exclude: ["password"],
       },
     });
 
     const user = await userData.get({ plain: true });
-
+    console.log(user);
     res.render("dashboard", {
       user,
       loggedIn: req.session.loggedIn,
@@ -132,6 +132,37 @@ router.get("/dashboard/post", async (req, res) => {
 
     res.render("dashboardPost", {
       user,
+      loggedIn: req.session.loggedIn,
+      userId: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/dashboard/edit/:id", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  }
+
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Post }],
+      attributes: {
+        exclude: ["password"],
+      },
+    });
+
+    const targetPostData = await Post.findByPk(req.params.id);
+
+    const targetPost = await targetPostData.get({ plain: true });
+    const user = await userData.get({ plain: true });
+
+    console.log("THIS HERE", targetPost);
+
+    res.render("dashboardEdit", {
+      user,
+      targetPost,
       loggedIn: req.session.loggedIn,
       userId: req.session.user_id,
     });

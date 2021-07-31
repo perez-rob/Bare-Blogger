@@ -16,11 +16,19 @@ nav {
   background-color: var(--color1);
   padding: 0.8rem 1.6rem;
   height: 6rem;
+  min-height: fit-content !important;
+}
+
+.nav-wrapper {
+  min-height: fit-content !important;
 }
 
 nav .brand-logo {
   color: var(--color5);
   font-size: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 nav ul li a {
@@ -121,4 +129,100 @@ nav ul li a {
   justify-content: space-between;
   border-top: 3px solid var(--color1);
   margin-top: 1.5rem;
+}
+
+/*----------  LOGIN PAGE ----------------*/
+
+#flex-cont {
+  display: flex;
+  height: 70vh;
+  width: 100vw;
+  align-items: center;
+}
+
+#login-form {
+  border: 2px solid var(--color1);
+  border-radius: 1rem;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.input-field input {
+  font-size: 1.3em !important;
+}
+.input-field textarea {
+  font-size: 1.3em !important;
+}
+/* label color */
+.input-field label {
+  font-size: 1.2em;
+  color: #000;
+}
+/* label focus color */
+.input-field input:focus + label {
+  color: var(--color2) !important;
+}
+/* label underline focus color */
+.input-field input:focus {
+  border-bottom: 1px solid var(--color2) !important;
+  box-shadow: 0 1px 0 0 var(--color2) !important;
+}
+
+/* label focus color */
+.input-field textarea:focus + label {
+  color: var(--color2) !important;
+}
+/* label underline focus color */
+.input-field textarea:focus {
+  border-bottom: 1px solid var(--color2) !important;
+  box-shadow: 0 1px 0 0 var(--color2) !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: var(--color2) !important;
+}
+
+.btn[type="submit"] {
+  color: var(--color5);
+  background-color: var(--color2);
+  font-size: 1.2em;
+}
+
+.btn {
+  color: var(--color5);
+  background-color: var(--color2);
+  font-size: 1.2em;
+}
+
+textarea + label {
+  pointer-events: none;
+}
+
+textarea + label * {
+  pointer-events: all;
+}
+
+#then-sign-up {
+  font-size: 1.3rem;
+  color: var(--color1);
+}
+/*----------  =========== ----------------*/
+
+/*----------  Media Q's ----------------*/
+@media screen and (max-width: 750px) {
+  nav .brand-logo {
+    color: var(--color5);
+    font-size: 3rem;
+    left: 5%;
+    -webkit-transform: translateX(-5%);
+    transform: translateX(-5%);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  nav .brand-logo {
+    color: var(--color5);
+    font-size: 2rem;
+  }
 }

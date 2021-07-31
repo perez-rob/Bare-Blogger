@@ -29,13 +29,13 @@
   {{/if}}
   {{#if userBtns}}
     <button
-    id="editBtn-{{id}}"
-    data-postId="{{id}}"
+    id="editBtn-{{post.id}}"
+    data-postId="{{post.id}}"
     class="waves-effect waves-light btn editBtn"
   >Edit</button>
   <button
-    id="deleteBtn-{{id}}"
-    data-postId="{{id}}"
+    id="deleteBtn-{{post.id}}"
+    data-postId="{{post.id}}"
     class="waves-effect waves-light btn deleteBtn"
   >Delete</button>
   {{/if}}
@@ -53,4 +53,5 @@
 
 {{#if loggedIn}}
 <script src="/js/addComment.js"></script>
+<script src="/js/deletePost.js"></script>
 {{/if}}

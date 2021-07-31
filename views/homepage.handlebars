@@ -1,11 +1,15 @@
 <div class="homepage-buttons">
   {{#if loggedIn}}
+  <div style="display: flex; flex-direction:column; justify-contents:center;">
   <h3>Logged in as {{userName.username}}</h3>
+  <hr/>
   <button onclick="document.location.assign('/dashboard/post')" class="waves-effect waves-light btn">New Post</button>
+  </div>
   {{else}}
-  <button onclick="document.location.assign('/signup')" class="waves-effect waves-light btn">Join The Movement</button>
+  <button onclick="document.location.assign('/signup')" class="waves-effect waves-light btn">Join The Community</button>
   {{/if}}
 </div>
+
 
 
 {{#each posts as |post|}}
