@@ -6,11 +6,11 @@
 
 A blog site where users can make an account, post anything the want and comment on other users' posts.
 
-![Demo gif](./public/assets/images/demo.gif)
+![Demo gif](./public/images/demo.gif)
 
-The code and all relevant files can be found at [github.com/perez-rob/Note-Taker](https://github.com/perez-rob/Note-Taker).
+The code and all relevant files can be found at [github.com/perez-rob/The-Peoples-Blog](https://github.com/perez-rob/The-Peoples-Blog).
 
-The deployed application can be accessed here: [note-taker-with-edit.herokuapp.com](https://note-taker-with-edit.herokuapp.com)
+The deployed application can be accessed here: [the-peoples-blog.herokuapp.com/](https://the-peoples-blog.herokuapp.com/)
 
 ## Table of Contents
 
@@ -22,15 +22,13 @@ The deployed application can be accessed here: [note-taker-with-edit.herokuapp.c
 
 - [Credits](#credits)
 
-- [Tests](#tests)
-
 - [Questions](#questions)
 
 - [License](#license)
 
 ## Installation
 
-No installation required. Just go to [note-taker-with-edit.herokuapp.com](https://note-taker-with-edit.herokuapp.com) to use.
+No installation required. Just go to [the-peoples-blog.herokuapp.com/](https://the-peoples-blog.herokuapp.com/) to use.
 
 ## Features
 
